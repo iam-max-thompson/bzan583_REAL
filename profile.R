@@ -8,8 +8,8 @@
 game_level <- read.csv("game_level_data_583.csv")
 player_level <- read.csv("player_level_data_583.csv")
 
-player_level <- player_level %>% 
-  filter(batting_position <= 9)
+# filter so batting_position is 9 or less
+player_level <- player_level[player_level$batting_position <= 9, ]
 
 
 

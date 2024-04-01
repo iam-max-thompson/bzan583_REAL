@@ -119,3 +119,4 @@ sample.interval=20000
 "[<-.data.frame" "[<-" 
 "[[" "[.data.frame" "[" 
 "structure" "object.size" ".rs.describeObject" 
+"ls" "FUN" "lapply" ".rs.objectsOnSearchPath" ".rs.getCompletionsSearchPath" "Reduce" ".rs.rpc.get_completions" 
