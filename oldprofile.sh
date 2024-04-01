@@ -4,7 +4,7 @@
 #SBATCH --partition=cpu
 #SBATCH --mem=16g
 #SBATCH --cpus-per-task=1
-#SBATCH --time 00:00:30
+#SBATCH --time 00:06:30
 #SBATCH -e ./utk.e
 #SBATCH -o ./utk.o
 
