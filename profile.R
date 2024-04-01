@@ -1,7 +1,7 @@
 # read in the player level data
 # note: fixing the which dropped time to 51.3
 #setwd("/Users/max/Desktop/school/bzan583_REAL")
-setwd('/u/sthompson2/bzan583_REAL')
+#setwd('/u/sthompson2/bzan583_REAL')
 
 
 
