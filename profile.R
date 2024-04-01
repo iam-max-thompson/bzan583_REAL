@@ -14,6 +14,7 @@ player_level <- player_level[player_level$batting_position <= 9, ]
 
 
 Rprof()
+Sys.time()
 
 # Create lineup dataframe
 lineup <- data.frame(game_id = game_level$game_id, team = game_level$team)
@@ -61,5 +62,7 @@ for (game in 1:nrow(game_level)) {
   }
 }
 
+print("DONE")
+Sys.time()
 Rprof(NULL)
 summaryRprof()
