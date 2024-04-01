@@ -5,4 +5,3 @@ Currently Loaded Modules:
 
  
 
-slurmstepd: error: *** JOB 3343845 ON cn001 CANCELLED AT 2024-04-01T18:41:28 DUE TO TIME LIMIT ***
