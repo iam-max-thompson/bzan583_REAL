@@ -55,7 +55,7 @@ for (game in 1:nrow(game_level)) {
   }
   
   # Print progress
-  if (game %% 100 == 0) {
+  if (game %% 5000 == 0) {
     cat("Game", game, "of", nrow(game_level), "\n")
     cat("Percent Done:", round(game / nrow(game_level) * 100, 0), "%\n")
   }
