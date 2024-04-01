@@ -1,8 +1,6 @@
 # read in the player level data
 # note: this took 111 seconds
-setwd("/Users/max/Desktop/school/bzan583_REAL")
-library(readr)
-library(tidyverse)
+
 game_level <- read_csv("game_level_data_583.csv")
 player_level <- read_csv("player_level_data_583.csv")
 
@@ -10,7 +8,7 @@ player_level <- read_csv("player_level_data_583.csv")
 
 Rprof()
 
-start_time <- Sys.time()
+Sys.time()
 
 
 lineup <- data.frame(matrix(ncol = 0, nrow = nrow(game_level)))
@@ -66,16 +64,12 @@ for (game in 1:nrow(game_level)) {
     # Fill in player name separately
     lineup[game, paste0("p", pos)] <- player_name
   }
-  
-  # Print progress
-  if (game %% 100 == 0) {
-    print(paste("Game", game, "of", nrow(game_level)))
-    # print percent done
-    print(paste("Percent Done:", round(game / nrow(game_level) * 100, 0), "%"))
-  }
+
 }
 
 
+
+Sys.time()
 
 
 Rprof(NULL)
