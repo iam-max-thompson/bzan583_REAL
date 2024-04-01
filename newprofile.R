@@ -7,8 +7,8 @@ library(tidyverse)
 game_level <- read_csv("game_level_data_583.csv")
 player_level <- read_csv("player_level_data_583.csv")
 
-#player_level <- player_level %>% 
-  #filter(batting_position <= 9)
+player_level <- player_level %>% 
+  filter(batting_position <= 9)
 
 
 
