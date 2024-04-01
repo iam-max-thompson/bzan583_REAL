@@ -1,8 +1,8 @@
 # read in the player level data
 # note: this took 111 seconds
 
-game_level <- read_csv("game_level_data_583.csv")
-player_level <- read_csv("player_level_data_583.csv")
+game_level <- read.csv("game_level_data_583.csv")
+player_level <- read.csv("player_level_data_583.csv")
 
 
 
