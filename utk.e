@@ -5,10 +5,3 @@ Currently Loaded Modules:
 
  
 
-Error in player_level %>% filter(batting_position <= 9) : 
-  could not find function "%>%"
-Execution halted
-
-real	0m8.000s
-user	0m1.609s
-sys	0m2.570s
