@@ -5,3 +5,7 @@ Currently Loaded Modules:
 
  
 
+
+real	1m17.645s
+user	1m10.664s
+sys	0m3.277s
