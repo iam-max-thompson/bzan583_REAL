@@ -1,4 +1,3 @@
-/var/spool/slurmd/job3343071/slurm_script: line 11: cd: /u/sthompson2/BZAN_583_code: No such file or directory
 
 Currently Loaded Modules:
   1) gcc/11.4.0      3) cuda/11.8.0         5) slurm-env/0.1   7) r/4.3.2
@@ -6,10 +5,10 @@ Currently Loaded Modules:
 
  
 
-Error in setwd("/Users/max/Desktop/school/bzan583_REAL") : 
-  cannot change working directory
+Error in player_level %>% filter(batting_position <= 9) : 
+  could not find function "%>%"
 Execution halted
 
-real	0m0.717s
-user	0m0.163s
-sys	0m0.095s
+real	0m8.000s
+user	0m1.609s
+sys	0m2.570s
