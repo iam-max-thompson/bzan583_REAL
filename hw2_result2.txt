@@ -1,0 +1,163 @@
+RESULT: THIS OLD, BAD CODE TOOK THREE MINUTES AND THIRTY SECONDS TO RUN.
+
+Rprof()
+
+Sys.time()
+
+
+lineup <- data.frame(matrix(ncol = 0, nrow = nrow(game_level)))
+
+# create lineup level stats
+lineup$game_id <- game_level$game_id
+lineup$team <- game_level$team
+
+# Define the list of columns to create
+columns_to_create <- c(
+  "avg_obp_this_yr", "avg_slg_this_yr", "avg_obp_plus_slg_this_yr",
+  "ly_games", "ly_plate_appearances", "ly_on_base_percentage",
+  "ly_slugging_percentage", "ly_OBP_plus_SLG", "ly_double_rate",
+  "ly_triple_rate", "ly_hr_rate", "ly_steal_score", "ly_start_rate", "ly_avg_batting_position", "avg_double_rate_this_yr", "avg_triple_rate_this_yr", "avg_home_run_rate_this_yr", "avg_steal_score_this_yr",
+  "avg_start_rate_this_yr", "avg_batting_position_this_yr"
+)
+
+# Loop through each position
+for (i in 1:9) {
+  # Create p column
+  lineup[paste0("p", i)] <- 0
+  
+  # Loop through the columns to create
+  for (col in columns_to_create) {
+    # Create the column
+    lineup[paste0("p", i, "_", col)] <- 0
+  }
+}
+
+# Loop through each game to grab game stats
+for (game in 1:nrow(game_level)) {
+  current_game <- game_level[game, ]
+  current_game_id <- current_game$game_id
+  current_team <- current_game$team
+  
+  for (pos in 1:9) {
+    player_row <- which(player_level$game_id == current_game_id &
+                          player_level$batting_position == pos &
+                          player_level$team == current_team)
+    
+    player_name <- player_level$Player[player_row]
+    player <- player_level[player_row, ]
+    
+    # Loop through the columns to fill in stats
+    for (col in columns_to_create) {
+      # Get the value from the player dataframe
+      value <- player[[col]]
+      
+      # Fill in the lineup dataframe
+      lineup[game, paste0("p", pos, "_", col)] <- value
+    }
+    
+    # Fill in player name separately
+    lineup[game, paste0("p", pos)] <- player_name
+  }
+
+}
+
+
+
+Sys.time()
+
+
+Rprof(NULL)
+summaryRprof()
+
+
+
+
+/u/sthompson2/bzan583_REAL
+loaded R
+[1] "2024-04-01 18:54:20 CDT"
+[1] "2024-04-01 18:57:50 CDT"
+$by.self
+                        self.time self.pct total.time total.pct
+"which"                    101.12    48.93     101.40     49.07
+"[<-.data.frame"            45.00    21.77      60.22     29.14
+"[[.data.frame"             10.52     5.09      31.22     15.11
+"sys.call"                   8.30     4.02       8.30      4.02
+"%in%"                       7.20     3.48      17.00      8.23
+"[["                         5.64     2.73      36.86     17.84
+"[.data.frame"               4.94     2.39      33.96     16.43
+"<Anonymous>"                4.32     2.09       5.92      2.86
+"paste0"                     4.26     2.06       4.26      2.06
+"anyDuplicated"              2.88     1.39       3.70      1.79
+"[<-"                        2.28     1.10      62.50     30.24
+"all"                        1.98     0.96       1.98      0.96
+"names"                      1.64     0.79       1.64      0.79
+".subset2"                   1.40     0.68       1.40      0.68
+"anyDuplicated.default"      0.82     0.40       0.82      0.40
+"length"                     0.80     0.39       0.80      0.39
+"max"                        0.62     0.30       0.62      0.30
+"NROW"                       0.58     0.28       0.66      0.32
+".row_names_info"            0.38     0.18       0.38      0.18
+"c"                          0.38     0.18       0.38      0.18
+"nargs"                      0.32     0.15       0.32      0.15
+"is.matrix"                  0.20     0.10       0.20      0.10
+"isTRUE"                     0.20     0.10       0.20      0.10
+"dim"                        0.18     0.09       0.18      0.09
+"["                          0.12     0.06      34.08     16.49
+"anyNA"                      0.12     0.06       0.12      0.06
+"$"                          0.10     0.05       0.10      0.05
+"list"                       0.10     0.05       0.10      0.05
+"oldClass"                   0.10     0.05       0.10      0.05
+"is.list"                    0.06     0.03       0.06      0.03
+"=="                         0.04     0.02       0.04      0.02
+"attr"                       0.04     0.02       0.04      0.02
+"mayCallBrowserList"         0.02     0.01       0.02      0.01
+
+$by.total
+                        total.time total.pct self.time self.pct
+"which"                     101.40     49.07    101.12    48.93
+"[<-"                        62.50     30.24      2.28     1.10
+"[<-.data.frame"             60.22     29.14     45.00    21.77
+"[["                         36.86     17.84      5.64     2.73
+"["                          34.08     16.49      0.12     0.06
+"[.data.frame"               33.96     16.43      4.94     2.39
+"[[.data.frame"              31.22     15.11     10.52     5.09
+"%in%"                       17.00      8.23      7.20     3.48
+"sys.call"                    8.30      4.02      8.30     4.02
+"<Anonymous>"                 5.92      2.86      4.32     2.09
+"paste0"                      4.26      2.06      4.26     2.06
+"anyDuplicated"               3.70      1.79      2.88     1.39
+"all"                         1.98      0.96      1.98     0.96
+"names"                       1.64      0.79      1.64     0.79
+".subset2"                    1.40      0.68      1.40     0.68
+"anyDuplicated.default"       0.82      0.40      0.82     0.40
+"length"                      0.80      0.39      0.80     0.39
+"NROW"                        0.66      0.32      0.58     0.28
+"max"                         0.62      0.30      0.62     0.30
+".row_names_info"             0.38      0.18      0.38     0.18
+"c"                           0.38      0.18      0.38     0.18
+"nargs"                       0.32      0.15      0.32     0.15
+"is.matrix"                   0.20      0.10      0.20     0.10
+"isTRUE"                      0.20      0.10      0.20     0.10
+"dim"                         0.18      0.09      0.18     0.09
+"anyNA"                       0.12      0.06      0.12     0.06
+"$"                           0.10      0.05      0.10     0.05
+"list"                        0.10      0.05      0.10     0.05
+"oldClass"                    0.10      0.05      0.10     0.05
+"is.list"                     0.06      0.03      0.06     0.03
+"=="                          0.04      0.02      0.04     0.02
+"attr"                        0.04      0.02      0.04     0.02
+"mayCallBrowserList"          0.02      0.01      0.02     0.01
+"compile"                     0.02      0.01      0.00     0.00
+"compiler:::tryCompile"       0.02      0.01      0.00     0.00
+"doTryCatch"                  0.02      0.01      0.00     0.00
+"mayCallBrowser"              0.02      0.01      0.00     0.00
+"tryCatch"                    0.02      0.01      0.00     0.00
+"tryCatchList"                0.02      0.01      0.00     0.00
+"tryCatchOne"                 0.02      0.01      0.00     0.00
+
+$sample.interval
+[1] 0.02
+
+$sampling.time
+[1] 206.66
+

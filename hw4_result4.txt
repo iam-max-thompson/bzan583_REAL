@@ -1,0 +1,20 @@
+Result 4: Two or three sentences that explain your changes and why things got faster.
+
+I think the biggest change that was implemented was a single change in a which() call.
+
+Here it is:
+    player_row <- which(player_level$game_id == current_game_id &
+                          player_level$batting_position == pos &
+                          player_level$team == current_team)
+
+This single which statement is relatively complicated as it has to find three seperate criteria.
+
+The goal is to grab the SINGLE player for the SINGLE game to extract their stats.
+
+However, I did not need to loop through each player in order to re-grab the game_id or the current_team.
+
+Since 9 players all have the same game_id/team, there is no need to do those two filters 9 times instead of just once.
+
+By moving that outside and making a couple other basic changes, I was able to reduce the runtime.
+
+This dropped the self time of which() from over 100 seconds to just 9 seconds. I can't believe this small of a change was able to make such a drastic impact

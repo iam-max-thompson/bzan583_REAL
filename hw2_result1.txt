@@ -1,0 +1,15 @@
+
+
+This code is used to build out a softball lineup for a project I am working on this semster.
+
+The goal is to build a lineup with 9 players and multiple different stats for each player in the lineup.
+
+Game_level contains information about the matchup, such as opponent or season.
+
+Player_level represents a single player in a single game as a single row. This is where the stats come from.
+
+For each game in game_level, i need to grab the 9 starters from player_level and grab each of their 7 stats from player_level 
+to create 63 columns for each game.
+
+This process involves using stats for over 100,000 rows of players for over 8,500 games.
+
