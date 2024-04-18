@@ -7,7 +7,7 @@ set.seed(123)
 
 # sample 100,000 rows
 sub_audio_features <- audio_features %>%
-  sample_n(50000)
+  sample_n(500)
 
 print("data loaded succesfully. correct wd")
 
