@@ -6,7 +6,7 @@ audio_features <- read.csv("/projects/bckj/Team2/data/Spotify/audio_features.csv
 set.seed(123)
 
 # sample 100,000 rows
-sub_audio_features <- audio_features[sample(nrow(audio_features), 500, replace = FALSE), , drop = FALSE]
+sub_audio_features <- audio_features[sample(nrow(audio_features), 100000, replace = FALSE), , drop = FALSE]
 
 
 print("data loaded succesfully. correct wd")
