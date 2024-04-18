@@ -1,7 +1,7 @@
 library(parallel)                                       #<<
 library(randomForest)
 
-audio_features <- read_csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
+audio_features <- read.csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
 
 set.seed(123)
 
@@ -23,8 +23,8 @@ i_test = sample.int(n, n_test)
 train = sub_audio_features[-i_test, ]
 test = sub_audio_features[i_test, ]
 
-#nc = as.numeric(commandArgs(TRUE)[2])
-nc <-  12
+nc = as.numeric(commandArgs(TRUE)[2])
+#nc <-  12
 ntree = lapply(splitIndices(200, nc), length)            #<<
 rf = function(x, train) randomForest(danceability ~ energy + loudness + speechiness + tempo + time_signature + valence, train, ntree=x, norm.votes = FALSE) #<<
 rf.out = mclapply(ntree, rf, train = train, mc.cores = nc)      #<<

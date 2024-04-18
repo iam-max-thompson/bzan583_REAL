@@ -3,7 +3,7 @@
 # read in the data
 
 
-audio_features <- read_csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
+audio_features <- read.csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
 
 
 set.seed(seed = 123)
