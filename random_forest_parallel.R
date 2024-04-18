@@ -1,7 +1,8 @@
 library(parallel)                                       #<<
 library(randomForest)
 
-audio_features <- read.csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
+library(data.table)
+audio_features <- fread("/projects/bckj/Team2/data/Spotify/audio_features.csv")
 
 set.seed(123)
 
