@@ -1,0 +1,38 @@
+# random forest script
+
+# read in the data
+
+
+audio_features <- read_csv("/projects/bckj/Team2/data/Spotify/audio_features.csv")
+
+
+set.seed(seed = 123)
+
+# sample 100,000 rows
+sub_audio_features <- audio_features %>%
+  sample_n(100000)
+
+print("data loaded succesfully. correct wd")
+
+######### NON PARALLEL CODE #########
+library(randomForest)
+
+start_time <- Sys.time()
+
+n = nrow(sub_audio_features)
+n_test = floor(0.2 * n)
+i_test = sample.int(n, n_test)
+train = sub_audio_features[-i_test, ]
+test = sub_audio_features[i_test, ]
+
+rf.all = randomForest(danceability ~ energy + loudness + speechiness + tempo + time_signature + valence, train, ntree = 200, norm.votes = FALSE)
+pred = predict(rf.all, test)
+
+
+rmse <- sqrt(mean((test$danceability - pred)^2))
+cat("RMSE:", rmse, "\n")
+
+end_time <- Sys.time()
+
+# print time it took to run
+round(end_time - start_time, 2)
