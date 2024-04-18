@@ -8,36 +8,36 @@ Currently Loaded Modules:
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	24m11.400s
-user	10m24.011s
-sys	0m1.389s
+real	2m15.030s
+user	0m21.240s
+sys	0m1.510s
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	9m36.630s
-user	9m31.530s
-sys	0m1.258s
+real	0m15.375s
+user	0m24.833s
+sys	0m0.884s
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	5m5.874s
-user	9m38.360s
-sys	0m2.364s
+real	0m10.928s
+user	0m25.042s
+sys	0m1.185s
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	2m27.053s
-user	9m25.105s
-sys	0m4.109s
+real	0m9.251s
+user	0m27.697s
+sys	0m1.594s
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	1m21.141s
-user	9m47.120s
-sys	0m8.336s
+real	0m7.857s
+user	0m31.029s
+sys	0m2.319s
 randomForest 4.7-1.1
 Type rfNews() to see new features/changes/bug fixes.
 
-real	0m52.283s
-user	11m1.818s
-sys	0m21.191s
+real	0m7.546s
+user	0m35.839s
+sys	0m4.106s
