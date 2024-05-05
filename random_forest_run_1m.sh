@@ -14,7 +14,7 @@ pwd
 module load r
 module list
 
-time Rscript random_forest_1m.R --args 120
+time Rscript random_forest_1m.R --args 32
 
 
 
