@@ -2,17 +2,17 @@
 #SBATCH --job-name utk
 #SBATCH --account=bckj-delta-cpu
 #SBATCH --partition=cpu
-#SBATCH --mem=40g
-#SBATCH --nodes=2
-#SBATCH --cpus-per-task=64
+#SBATCH --mem=20g
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=48
 #SBATCH --time 04:50:00
-#SBATCH -e ./utk_2.e
-#SBATCH -o ./utk_2.o
+#SBATCH -e ./utk_3.e
+#SBATCH -o ./utk_3.o
 
 pwd
 
 module load r
 module list
 
-time Rscript random_forest_parallel.R --args 64
+time Rscript random_forest_parallel.R --args 48
 time Rscript random_forest_parallel.R --args 16
