@@ -8,7 +8,7 @@ audio_features <- fread("/projects/bckj/Team2/data/Spotify/MAIN.csv")
 set.seed(123)
 
 # sample 100,000 rows
-sub_audio_features <- audio_features[sample(nrow(audio_features), 100000, replace = FALSE), , drop = FALSE]
+sub_audio_features <- audio_features[sample(nrow(audio_features), 200000, replace = FALSE), , drop = FALSE]
 
 #sub_audio_features <- audio_features
 
