@@ -14,6 +14,6 @@ pwd
 module load r
 module list
 
-time Rscript random_forest_parallel.R --args 2
+time Rscript random_forest_parallel.R --args 8
 time Rscript random_forest_parallel.R --args 16
 time Rscript random_forest_parallel.R --args 124
