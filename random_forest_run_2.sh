@@ -4,15 +4,17 @@
 #SBATCH --partition=cpu
 #SBATCH --mem=20g
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=48
+#SBATCH --cpus-per-task=32
 #SBATCH --time 04:50:00
-#SBATCH -e ./utk_3.e
-#SBATCH -o ./utk_3.o
+#SBATCH -e ./utk_100k.e
+#SBATCH -o ./utk_100k.o
 
 pwd
 
 module load r
 module list
 
-time Rscript random_forest_parallel.R --args 4
 time Rscript random_forest_parallel.R --args 16
+time Rscript random_forest_parallel.R --args 32
+
+
