@@ -15,6 +15,6 @@ module load r
 module list
 
 time Rscript random_forest_parallel.R --args 16
-time Rscript random_forest_parallel.R --args 32
+time Rscript random_forest_parallel.R --args 24
 
 
