@@ -2,7 +2,7 @@
 #SBATCH --job-name utk
 #SBATCH --account=bckj-delta-cpu
 #SBATCH --partition=cpu
-#SBATCH --mem=94g
+#SBATCH --mem=200g
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=120
 #SBATCH --time 01:50:00
@@ -14,7 +14,7 @@ pwd
 module load r
 module list
 
-time Rscript random_forest_1m.R --args 64
+time Rscript random_forest_1m.R --args 120
 
 
 
