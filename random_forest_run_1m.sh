@@ -5,9 +5,9 @@
 #SBATCH --mem=240g
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=120
-#SBATCH --time 10:50:00
-#SBATCH -e ./utk_overnight.e
-#SBATCH -o ./utk_overnight.o
+#SBATCH --time 18:50:00
+#SBATCH -e ./utk_overnight_2.e
+#SBATCH -o ./utk_overnight_2.o
 
 pwd
 
